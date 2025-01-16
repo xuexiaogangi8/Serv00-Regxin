@@ -143,7 +143,7 @@ def start_task(input_email: str):
                 captcha_0 = re.findall(r'id=\"id_captcha_0\" name=\"captcha_0\" value=\"(\w+)\">', content)[0]
                 captcha_retry = 1
                 while True:
-                    time.sleep(random.uniform(0.5, 1.2))
+                    time.sleep(random.uniform(1.5, 2.2))
                     logger.info("获取验证码")
                     resp = session.get(url=captcha_url.format(captcha_0), headers=dict(header2, **{"Cookie": header2["Cookie"].format(csrftoken)}), verify=False); time.sleep(random.uniform(0.5, 2))
                     content = resp.content
